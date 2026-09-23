@@ -68,7 +68,7 @@ function Home() {
         )}
 
         <div className="py-5 flex gap-6 flex-wrap justify-center">
-          {filterProducts &&
+          {filterProducts?.length > 0 &&
             filterProducts.map((p, idx) => {
               return (
                 <div class="w-60 h-70 border-zinc-200 border-2 rounded-3xl p-3 flex flex-col items-center justify-center gap-4 hover:shadow-[5px_5px_rgba(63,63,70,0.25),_10px_10px_rgba(63,63,70,0.2),_15px_15px_rgba(63,63,70,0.15),_20px_20px_rgba(63,63,70,0.1),_25px_25px_rgba(63,63,70,0.05)] transition-shadow duration-75 ease-in-out">
@@ -100,7 +100,12 @@ function Home() {
       </div>
     </>
   ) : (
-    <Loading />
+    <div className="mt-20 text-center">
+      <h1 className="text-2xl font-bold">No products yet</h1>
+      <p className="mt-2 text-zinc-500">
+        Add a product to start building your collection.
+      </p>
+    </div>
   );
 }
 
